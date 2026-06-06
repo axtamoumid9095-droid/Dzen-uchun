@@ -1,483 +1,523 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1684 1190" font-family="Arial, Helvetica, sans-serif">
   <style>
-    .wire   { stroke:#111; stroke-width:1.6; fill:none; }
-    .wire2  { stroke:#111; stroke-width:1.2; fill:none; }
-    .dash   { stroke:#111; stroke-width:1; fill:none; stroke-dasharray:4 3; }
-    .comp   { stroke:#111; stroke-width:1.6; fill:none; }
-    .fill   { stroke:#111; stroke-width:1.4; fill:#fff; }
-    .t      { font-size:13px; fill:#111; }
-    .tb     { font-size:13px; fill:#111; font-weight:bold; }
-    .ts     { font-size:11px; fill:#111; }
-    .title  { font-size:22px; fill:#111; font-weight:bold; }
-    .sub    { font-size:16px; fill:#111; font-weight:bold; }
-    .red    { fill:#e23b2e; }
-    .grn    { fill:#37a23a; }
+    .wire {stroke:#0a0a0a; stroke-width:1.7; fill:none;}
+    .thin {stroke:#0a0a0a; stroke-width:1.1; fill:none;}
+    .dash {stroke:#0a0a0a; stroke-width:1.1; fill:none; stroke-dasharray:5 3;}
+    .comp {stroke:#0a0a0a; stroke-width:1.8; fill:none;}
+    .fill {stroke:#0a0a0a; stroke-width:1.6; fill:#ffffff;}
+    .frame{stroke:#0a0a0a; stroke-width:2.2; fill:none;}
+    .dot  {fill:#0a0a0a;}
+    .t    {font-size:14px; fill:#0a0a0a;}
+    .tb   {font-size:14px; fill:#0a0a0a; font-weight:bold;}
+    .ts   {font-size:12px; fill:#0a0a0a;}
+    .tt   {font-size:11px; fill:#0a0a0a;}
+    .title{font-size:24px; fill:#0a0a0a; font-weight:bold;}
+    .sec  {font-size:16px; fill:#0a0a0a; font-weight:bold;}
   </style>
 
-  <rect x="0" y="0" width="1400" height="1000" fill="#ffffff"/>
+  <rect x="0" y="0" width="1684" height="1190" fill="#ffffff"/>
+  <!-- drawing frame (GOST: 20 mm left margin) -->
+  <rect class="thin"  x="8"  y="8"  width="1668" height="1174"/>
+  <rect class="frame" x="28" y="14" width="1640" height="1162"/>
 
-  <!-- ===================== TITLE ===================== -->
-  <text x="540" y="34" text-anchor="middle" class="title">SULFAT AMMONIY ISHLAB CHIQARISH JARAYONINING</text>
-  <text x="540" y="60" text-anchor="middle" class="title">ELEKTR PRINSIPIAL SXEMASI</text>
-
-  <!-- ===================== POWER SUPPLY BUSES ===================== -->
-  <text x="20" y="86" class="ts">~ 3x380 V, 50 Hz</text>
-  <!-- L1,L2,L3,PE labels -->
-  <text x="20" y="106" class="t">L1</text>
-  <text x="20" y="124" class="t">L2</text>
-  <text x="20" y="142" class="t">L3</text>
-  <text x="20" y="162" class="t">PE</text>
-
-  <!-- main horizontal buses -->
-  <line class="wire" x1="45" y1="102" x2="1180" y2="102"/>
-  <line class="wire" x1="45" y1="120" x2="1180" y2="120"/>
-  <line class="wire" x1="45" y1="138" x2="1180" y2="138"/>
-  <line class="dash" x1="45" y1="158" x2="760" y2="158"/>
-
-  <!-- ===================== M1 POWER BRANCH (NH3 nasosi) ===================== -->
-  <g transform="translate(120,170)">
-    <!-- vertical drops from buses -->
-    <line class="wire" x1="0"  y1="-68" x2="0"  y2="30"/>
-    <line class="wire" x1="26" y1="-50" x2="26" y2="30"/>
-    <line class="wire" x1="52" y1="-32" x2="52" y2="30"/>
-
-    <!-- QF1 breaker (3 pole) -->
-    <text x="-42" y="-2" class="tb">QF1</text>
-    <line class="comp" x1="0"  y1="30" x2="6"  y2="14"/>
-    <line class="comp" x1="26" y1="30" x2="32" y2="14"/>
-    <line class="comp" x1="52" y1="30" x2="58" y2="14"/>
-    <line class="dash" x1="3" y1="22" x2="55" y2="22"/>
-
-    <!-- FU2 / FU3 fuses -->
-    <text x="70" y="58" class="tb">FU2</text>
-    <text x="70" y="72" class="tb">FU3</text>
-    <rect class="fill" x="-5"  y="44" width="10" height="22"/>
-    <rect class="fill" x="21"  y="44" width="10" height="22"/>
-    <rect class="fill" x="47"  y="44" width="10" height="22"/>
-    <line class="wire" x1="0" y1="30" x2="0" y2="44"/>
-    <line class="wire" x1="26" y1="30" x2="26" y2="44"/>
-    <line class="wire" x1="52" y1="30" x2="52" y2="44"/>
-
-    <!-- KM1 contactor -->
-    <text x="-42" y="98" class="tb">KM1</text>
-    <line class="wire" x1="0"  y1="66" x2="0"  y2="86"/>
-    <line class="wire" x1="26" y1="66" x2="26" y2="86"/>
-    <line class="wire" x1="52" y1="66" x2="52" y2="86"/>
-    <line class="comp" x1="0"  y1="100" x2="8"  y2="86"/>
-    <line class="comp" x1="26" y1="100" x2="34" y2="86"/>
-    <line class="comp" x1="52" y1="100" x2="60" y2="86"/>
-    <line class="dash" x1="4" y1="93" x2="56" y2="93"/>
-
-    <!-- FR1 thermal relay -->
-    <text x="-40" y="132" class="tb">FR1</text>
-    <line class="wire" x1="0"  y1="100" x2="0"  y2="116"/>
-    <line class="wire" x1="26" y1="100" x2="26" y2="116"/>
-    <line class="wire" x1="52" y1="100" x2="52" y2="116"/>
-    <rect class="fill" x="-7" y="116" width="14" height="20"/>
-    <rect class="fill" x="19" y="116" width="14" height="20"/>
-    <rect class="fill" x="45" y="116" width="14" height="20"/>
-
-    <!-- to motor -->
-    <line class="wire" x1="0"  y1="136" x2="0"  y2="160"/>
-    <line class="wire" x1="26" y1="136" x2="26" y2="160"/>
-    <line class="wire" x1="52" y1="136" x2="52" y2="160"/>
-    <line class="wire" x1="0"  y1="160" x2="26" y2="178"/>
-    <line class="wire" x1="52" y1="160" x2="26" y2="178"/>
-    <circle class="fill" cx="26" cy="200" r="22"/>
-    <text x="26" y="198" text-anchor="middle" class="tb">M1</text>
-    <text x="26" y="212" text-anchor="middle" class="ts">3~</text>
-    <text x="58" y="206" class="t">NH3 nasosi</text>
-  </g>
-
-  <!-- ===================== CONTROL CIRCUIT ===================== -->
-  <!-- Control transformer T1 -->
-  <g transform="translate(350,150)">
-    <text x="20" y="-44" class="tb">T1</text>
-    <text x="8" y="-28" class="ts">380 / 220 V</text>
-    <!-- primary tap from L1/L2 -->
-    <line class="wire" x1="0" y1="-48" x2="0" y2="10"/>
-    <line class="wire" x1="60" y1="-66" x2="60" y2="10"/>
-    <!-- transformer windings -->
-    <circle class="comp" cx="14" cy="40" r="14"/>
-    <circle class="comp" cx="14" cy="64" r="14"/>
-    <circle class="comp" cx="46" cy="40" r="14"/>
-    <circle class="comp" cx="46" cy="64" r="14"/>
-    <line class="comp" x1="30" y1="20" x2="30" y2="86"/>
-    <line class="wire" x1="0" y1="10" x2="14" y2="26"/>
-    <line class="wire" x1="60" y1="10" x2="46" y2="26"/>
-    <!-- secondary outputs -->
-    <line class="wire" x1="14" y1="78" x2="14" y2="110"/>
-    <line class="wire" x1="46" y1="78" x2="46" y2="110"/>
-  </g>
-
-  <!-- secondary line L (top) and N (bottom) -->
-  <text x="470" y="96" class="t">L</text>
-  <line class="wire" x1="364" y1="228" x2="364" y2="110"/>
-  <line class="wire" x1="364" y1="110" x2="1080" y2="110"/>
-  <text x="1086" y="114" class="t">h</text>
-
-  <text x="1086" y="134" class="t">N</text>
-  <line class="wire" x1="396" y1="228" x2="396" y2="130"/>
-  <line class="wire" x1="396" y1="130" x2="1080" y2="130"/>
-
-  <!-- FU4 / FU5 in control line -->
-  <text x="600" y="98" class="tb">FU4 2A</text>
-  <rect class="fill" x="588" y="103" width="34" height="14"/>
-  <text x="700" y="98" class="tb">FU5 2A</text>
-  <rect class="fill" x="688" y="103" width="34" height="14"/>
-
-  <!-- Control logic: SB0 stop, SB1 start, KM1 aux, FR1 contact, KM1 coil -->
-  <g transform="translate(440,150)">
-    <!-- vertical from L line -->
-    <line class="wire" x1="0" y1="-40" x2="0" y2="20"/>
-    <text x="-22" y="-2" class="tb">FR1</text>
-    <!-- FR1 NC contact -->
-    <line class="comp" x1="0" y1="20" x2="0" y2="34"/>
-    <circle class="fill" cx="0" cy="38" r="3"/>
-    <line class="comp" x1="0" y1="42" x2="14" y2="56"/>
-    <circle class="fill" cx="16" cy="58" r="3"/>
-    <line class="wire" x1="16" y1="58" x2="60" y2="58"/>
-
-    <!-- SB0 STOP (NC) -->
-    <text x="62" y="34" class="tb">SB0</text>
-    <text x="58" y="92" class="ts">STOP</text>
-    <circle class="fill" cx="62" cy="58" r="3"/>
-    <line class="comp" x1="62" y1="58" x2="76" y2="46"/>
-    <circle class="fill" cx="80" cy="44" r="3"/>
-    <line class="comp" x1="80" y1="44" x2="80" y2="40"/>
-    <line class="wire" x1="80" y1="58" x2="80" y2="58"/>
-    <line class="wire" x1="64" y1="58" x2="120" y2="58"/>
-
-    <!-- SB1 START (NO) -->
-    <text x="124" y="30" class="tb">SB1</text>
-    <circle class="fill" cx="124" cy="58" r="3"/>
-    <line class="comp" x1="124" y1="58" x2="140" y2="44"/>
-    <circle class="fill" cx="160" cy="58" r="3"/>
-    <line class="wire" x1="160" y1="58" x2="220" y2="58"/>
-
-    <!-- KM1 holding (seal-in) contact parallel to SB1 -->
-    <text x="120" y="104" class="tb">KM1</text>
-    <line class="wire" x1="124" y1="58" x2="124" y2="86"/>
-    <line class="wire" x1="124" y1="86" x2="138" y2="86"/>
-    <line class="comp" x1="138" y1="86" x2="156" y2="74"/>
-    <circle class="fill" cx="158" cy="86" r="3"/>
-    <line class="wire" x1="158" y1="86" x2="160" y2="86"/>
-    <line class="wire" x1="160" y1="86" x2="160" y2="58"/>
-
-    <!-- KM1 coil -->
-    <text x="224" y="44" class="tb">KM1</text>
-    <circle class="comp" cx="240" cy="58" r="14"/>
-    <line class="wire" x1="220" y1="58" x2="226" y2="58"/>
-    <line class="wire" x1="254" y1="58" x2="300" y2="58"/>
-    <!-- down to N -->
-    <line class="wire" x1="300" y1="58" x2="300" y2="-20"/>
-  </g>
-
-  <!-- HL1 power lamp -->
-  <text x="980" y="150" class="tb">HL1</text>
-  <circle class="comp" cx="980" cy="180" r="16"/>
-  <line class="comp" x1="969" y1="169" x2="991" y2="191"/>
-  <line class="comp" x1="991" y1="169" x2="969" y2="191"/>
-  <text x="1000" y="184" class="t">Quvvat</text>
-  <line class="wire" x1="980" y1="130" x2="980" y2="164"/>
-  <line class="wire" x1="980" y1="196" x2="980" y2="230"/>
-
-  <!-- ===================== LEGEND TABLE (top-right) ===================== -->
-  <g transform="translate(1130,70)">
-    <rect class="comp" x="0" y="0" width="250" height="350"/>
-    <text x="125" y="20" text-anchor="middle" class="tb">BELGILAR RO'YXATI</text>
-    <line class="comp" x1="0" y1="30" x2="250" y2="30"/>
-    <line class="comp" x1="55" y1="30" x2="55" y2="350"/>
-    <text x="8" y="46" class="tb">Belgi</text>
-    <text x="63" y="46" class="tb">Nomi</text>
-    <line class="comp" x1="0" y1="54" x2="250" y2="54"/>
-    <!-- rows -->
-    <g class="t">
-      <text x="8" y="72">QF</text><text x="63" y="72">Asosiy avtomat o'chirgich</text>
-      <text x="8" y="94">FU</text><text x="63" y="94">Sig'urta</text>
-      <text x="8" y="116">KM</text><text x="63" y="116">Kontaktor</text>
-      <text x="8" y="138">FR</text><text x="63" y="138">Termik rele</text>
-      <text x="8" y="160">SB</text><text x="63" y="160">Tugma (Start/Stop)</text>
-      <text x="8" y="182">HL</text><text x="63" y="182">Signal chiroq</text>
-      <text x="8" y="204">M</text><text x="63" y="204">Elektr dvigatel</text>
-      <text x="8" y="226">T</text><text x="63" y="226">Transformator</text>
-      <text x="8" y="248">SA</text><text x="63" y="248">Rele (vaqt)</text>
-      <text x="8" y="270">SK</text><text x="63" y="270">Rele (daraja)</text>
-      <text x="8" y="292">XT</text><text x="63" y="292">Klemma (terminal)</text>
-    </g>
-    <line class="comp" x1="0" y1="78" x2="250" y2="78"/>
-    <line class="comp" x1="0" y1="100" x2="250" y2="100"/>
-    <line class="comp" x1="0" y1="122" x2="250" y2="122"/>
-    <line class="comp" x1="0" y1="144" x2="250" y2="144"/>
-    <line class="comp" x1="0" y1="166" x2="250" y2="166"/>
-    <line class="comp" x1="0" y1="188" x2="250" y2="188"/>
-    <line class="comp" x1="0" y1="210" x2="250" y2="210"/>
-    <line class="comp" x1="0" y1="232" x2="250" y2="232"/>
-    <line class="comp" x1="0" y1="254" x2="250" y2="254"/>
-    <line class="comp" x1="0" y1="276" x2="250" y2="276"/>
-    <line class="comp" x1="0" y1="298" x2="250" y2="298"/>
-  </g>
-
-  <!-- ===================== MOTOR BRANCHES M2..M6 ===================== -->
-  <!-- secondary feeder bus for motor power taps -->
-  <line class="wire" x1="45" y1="430" x2="760" y2="430"/>
-  <line class="wire" x1="45" y1="448" x2="760" y2="448"/>
-  <line class="wire" x1="45" y1="466" x2="760" y2="466"/>
-  <!-- connect main 3-phase down to feeder -->
-  <line class="wire" x1="45" y1="102" x2="45" y2="430"/>
-  <line class="wire" x1="63" y1="120" x2="63" y2="448"/>
-  <line class="wire" x1="81" y1="138" x2="81" y2="466"/>
-  <line class="wire" x1="45" y1="448" x2="63" y2="448"/>
-  <line class="wire" x1="45" y1="466" x2="81" y2="466"/>
-
-  <!-- reusable motor starter symbol (unlabeled) -->
+  <!-- ===================== DEFS ===================== -->
   <defs>
-    <g id="starter">
-      <!-- three verticals -->
-      <line class="wire" x1="0"  y1="0"  x2="0"  y2="210"/>
-      <line class="wire" x1="22" y1="0"  x2="22" y2="210"/>
-      <line class="wire" x1="44" y1="0"  x2="44" y2="210"/>
-      <!-- QF breaker -->
-      <line class="comp" x1="0"  y1="24" x2="5"  y2="12"/>
-      <line class="comp" x1="22" y1="24" x2="27" y2="12"/>
-      <line class="comp" x1="44" y1="24" x2="49" y2="12"/>
-      <line class="dash" x1="2" y1="18" x2="46" y2="18"/>
+    <!-- 3-phase DOL feeder: QF -> FU -> KM -> FR -> M  (de-energized, contacts open) -->
+    <g id="feeder">
+      <!-- bus taps (A,B,C staggered) -->
+      <circle class="dot" cx="0"  cy="0"  r="2.8"/>
+      <circle class="dot" cx="22" cy="18" r="2.8"/>
+      <circle class="dot" cx="44" cy="36" r="2.8"/>
+      <!-- leads to QF -->
+      <line class="wire" x1="0"  y1="0"  x2="0"  y2="60"/>
+      <line class="wire" x1="22" y1="18" x2="22" y2="60"/>
+      <line class="wire" x1="44" y1="36" x2="44" y2="60"/>
+      <!-- QF: open blade + thermal/mag release box, per pole -->
+      <g>
+        <line class="comp" x1="0"  y1="60" x2="9"  y2="78"/><rect class="fill" x="-4" y="82" width="8" height="16"/>
+        <line class="comp" x1="22" y1="60" x2="31" y2="78"/><rect class="fill" x="18" y="82" width="8" height="16"/>
+        <line class="comp" x1="44" y1="60" x2="53" y2="78"/><rect class="fill" x="40" y="82" width="8" height="16"/>
+        <line class="dash" x1="0" y1="70" x2="44" y2="70"/>
+      </g>
+      <line class="wire" x1="0"  y1="98" x2="0"  y2="110"/>
+      <line class="wire" x1="22" y1="98" x2="22" y2="110"/>
+      <line class="wire" x1="44" y1="98" x2="44" y2="110"/>
       <!-- FU fuses -->
-      <rect class="fill" x="-4" y="40" width="8" height="18"/>
-      <rect class="fill" x="18" y="40" width="8" height="18"/>
-      <rect class="fill" x="40" y="40" width="8" height="18"/>
-      <!-- KM contactor -->
-      <line class="comp" x1="0"  y1="98" x2="6"  y2="84"/>
-      <line class="comp" x1="22" y1="98" x2="28" y2="84"/>
-      <line class="comp" x1="44" y1="98" x2="50" y2="84"/>
-      <line class="dash" x1="3" y1="91" x2="47" y2="91"/>
-      <!-- FR thermal relay -->
-      <rect class="fill" x="-5" y="120" width="10" height="16"/>
-      <rect class="fill" x="17" y="120" width="10" height="16"/>
-      <rect class="fill" x="39" y="120" width="10" height="16"/>
-      <!-- to motor -->
-      <line class="wire" x1="0"  y1="150" x2="22" y2="166"/>
-      <line class="wire" x1="44" y1="150" x2="22" y2="166"/>
-      <circle class="fill" cx="22" cy="188" r="20"/>
+      <rect class="fill" x="-5" y="110" width="10" height="24"/>
+      <rect class="fill" x="17" y="110" width="10" height="24"/>
+      <rect class="fill" x="39" y="110" width="10" height="24"/>
+      <line class="wire" x1="0"  y1="134" x2="0"  y2="150"/>
+      <line class="wire" x1="22" y1="134" x2="22" y2="150"/>
+      <line class="wire" x1="44" y1="134" x2="44" y2="150"/>
+      <!-- KM: open power contacts -->
+      <g>
+        <line class="comp" x1="0"  y1="150" x2="9"  y2="168"/>
+        <line class="comp" x1="22" y1="150" x2="31" y2="168"/>
+        <line class="comp" x1="44" y1="150" x2="53" y2="168"/>
+        <line class="dash" x1="0" y1="160" x2="44" y2="160"/>
+      </g>
+      <line class="wire" x1="0"  y1="170" x2="0"  y2="188"/>
+      <line class="wire" x1="22" y1="170" x2="22" y2="188"/>
+      <line class="wire" x1="44" y1="170" x2="44" y2="188"/>
+      <!-- FR thermal heaters -->
+      <rect class="fill" x="-6" y="188" width="12" height="22"/>
+      <rect class="fill" x="16" y="188" width="12" height="22"/>
+      <rect class="fill" x="38" y="188" width="12" height="22"/>
+      <!-- converge to motor -->
+      <line class="wire" x1="0"  y1="210" x2="22" y2="232"/>
+      <line class="wire" x1="22" y1="210" x2="22" y2="232"/>
+      <line class="wire" x1="44" y1="210" x2="22" y2="232"/>
+      <circle class="fill" cx="22" cy="258" r="26"/>
+      <!-- motor PE / earth -->
+      <line class="wire" x1="22" y1="284" x2="22" y2="296"/>
+      <line class="thin" x1="13" y1="296" x2="31" y2="296"/>
+      <line class="thin" x1="16" y1="300" x2="28" y2="300"/>
+      <line class="thin" x1="19" y1="304" x2="25" y2="304"/>
     </g>
+
+    <!-- control contacts (vertical rung, origin at top of contact) -->
+    <g id="no"><line class="comp" x1="-9" y1="0" x2="9" y2="0"/><line class="comp" x1="-9" y1="11" x2="9" y2="11"/></g>
+    <g id="nc"><line class="comp" x1="-9" y1="0" x2="9" y2="0"/><line class="comp" x1="-9" y1="11" x2="9" y2="11"/><line class="comp" x1="-12" y1="14" x2="11" y2="-4"/></g>
+    <g id="coil"><rect class="fill" x="-18" y="0" width="36" height="16"/></g>
   </defs>
 
+  <!-- ===================== TITLE ===================== -->
+  <text x="842" y="46" text-anchor="middle" class="title">SULFAT AMMONIY (NH4)2SO4 ISHLAB CHIQARISH</text>
+  <text x="842" y="74" text-anchor="middle" class="title">ELEKTR PRINSIPIAL SXEMASI</text>
+
+  <text x="60"  y="108" class="sec">A. KUCH (SILOVOY) ZANJIRI</text>
+
+  <!-- ===================== INCOMING SUPPLY + QF1 ===================== -->
+  <text x="60" y="150" class="tb">~ 3~ 50 Hz, 380/220 V</text>
+  <text x="34" y="172" class="t">L1</text>
+  <text x="34" y="190" class="t">L2</text>
+  <text x="34" y="208" class="t">L3</text>
+  <text x="34" y="226" class="t">N</text>
+  <text x="34" y="244" class="t">PE</text>
+
+  <!-- incoming verticals -->
+  <line class="wire" x1="95"  y1="168" x2="95"  y2="120"/>
+  <line class="wire" x1="113" y1="186" x2="113" y2="120"/>
+  <line class="wire" x1="131" y1="204" x2="131" y2="120"/>
+  <line class="wire" x1="60"  y1="168" x2="95"  y2="168"/>
+  <line class="wire" x1="60"  y1="186" x2="113" y2="186"/>
+  <line class="wire" x1="60"  y1="204" x2="131" y2="204"/>
+  <line class="wire" x1="60"  y1="222" x2="149" y2="222"/>
+  <line class="wire" x1="60"  y1="240" x2="167" y2="240"/>
+
+  <!-- QF1 main 3-pole breaker -->
+  <text x="60" y="290" class="tb">QF1</text>
+  <g>
+    <line class="comp" x1="95"  y1="120" x2="104" y2="138"/><rect class="fill" x="91"  y="142" width="8" height="16"/>
+    <line class="comp" x1="113" y1="120" x2="122" y2="138"/><rect class="fill" x="109" y="142" width="8" height="16"/>
+    <line class="comp" x1="131" y1="120" x2="140" y2="138"/><rect class="fill" x="127" y="142" width="8" height="16"/>
+    <line class="dash" x1="95" y1="130" x2="131" y2="130"/>
+  </g>
+  <!-- QF1 down to busbars -->
+  <line class="wire" x1="95"  y1="158" x2="95"  y2="220"/>
+  <line class="wire" x1="113" y1="158" x2="113" y2="238"/>
+  <line class="wire" x1="131" y1="158" x2="131" y2="256"/>
+  <!-- N to terminal, PE to ground -->
+  <line class="wire" x1="149" y1="222" x2="149" y2="270"/>
+  <text x="153" y="286" class="tt">N&#8594;XT</text>
+  <line class="wire" x1="167" y1="240" x2="167" y2="266"/>
+  <line class="thin" x1="158" y1="266" x2="176" y2="266"/>
+  <line class="thin" x1="161" y1="270" x2="173" y2="270"/>
+  <line class="thin" x1="164" y1="274" x2="170" y2="274"/>
+  <text x="180" y="262" class="tt">PE</text>
+
+  <!-- 3-phase busbars -->
+  <line class="wire" x1="95"  y1="220" x2="1500" y2="220"/>
+  <line class="wire" x1="113" y1="238" x2="1500" y2="238"/>
+  <line class="wire" x1="131" y1="256" x2="1500" y2="256"/>
+  <text x="1506" y="224" class="ts">L1 (A)</text>
+  <text x="1506" y="242" class="ts">L2 (B)</text>
+  <text x="1506" y="260" class="ts">L3 (C)</text>
+
+  <!-- ===================== CONTROL TRANSFORMER T1 ===================== -->
+  <!-- primary taps from L1,L2 through FU1,FU2 -->
+  <circle class="dot" cx="200" cy="220" r="2.8"/>
+  <circle class="dot" cx="240" cy="238" r="2.8"/>
+  <line class="wire" x1="200" y1="220" x2="200" y2="286"/>
+  <rect class="fill" x="195" y="286" width="10" height="22"/>
+  <line class="wire" x1="200" y1="308" x2="200" y2="318"/>
+  <line class="wire" x1="200" y1="318" x2="210" y2="318"/>
+  <text x="170" y="300" class="tt">FU1</text>
+  <line class="wire" x1="240" y1="238" x2="240" y2="330"/>
+  <rect class="fill" x="235" y="330" width="10" height="22"/>
+  <line class="wire" x1="240" y1="352" x2="240" y2="372"/>
+  <line class="wire" x1="240" y1="372" x2="210" y2="372"/>
+  <text x="248" y="346" class="tt">FU2</text>
+  <!-- windings -->
+  <path class="comp" d="M210,318 a8,9 0 0 1 0,18 a8,9 0 0 1 0,18 a8,9 0 0 1 0,18"/>
+  <path class="comp" d="M250,318 a8,9 0 0 0 0,18 a8,9 0 0 0 0,18 a8,9 0 0 0 0,18"/>
+  <line class="comp" x1="228" y1="312" x2="228" y2="378"/>
+  <line class="comp" x1="232" y1="312" x2="232" y2="378"/>
+  <text x="150" y="345" class="tb">T1</text>
+  <text x="150" y="362" class="tt">380/220V</text>
+  <!-- secondary to control rails -->
+  <line class="wire" x1="250" y1="318" x2="266" y2="318"/>
+  <rect class="fill" x="261" y="330" width="10" height="22"/>
+  <text x="274" y="346" class="tt">FU3</text>
+  <line class="wire" x1="266" y1="318" x2="266" y2="330"/>
+  <line class="wire" x1="266" y1="352" x2="266" y2="600"/>
+  <line class="wire" x1="250" y1="372" x2="210" y2="372"/>
+  <line class="wire" x1="210" y1="372" x2="210" y2="840"/>
+
+  <!-- ===================== MOTOR FEEDERS M1..M6 ===================== -->
+  <!-- M1 -->
+  <g transform="translate(300,220)"><use href="#feeder"/></g>
+  <g transform="translate(300,220)">
+    <text x="-44" y="76"  class="tb">QF2</text>
+    <text x="58"  y="126" class="tt">FU4..FU6</text>
+    <text x="-44" y="166" class="tb">KM1</text>
+    <text x="-44" y="206" class="tb">FR1</text>
+    <text x="22"  y="263" text-anchor="middle" class="tb">M1</text>
+    <text x="22"  y="278" text-anchor="middle" class="ts">3~</text>
+    <text x="22"  y="330" text-anchor="middle" class="ts">NH3 nasosi</text>
+  </g>
   <!-- M2 -->
-  <g transform="translate(70,500)">
-    <use href="#starter"/>
-    <text x="-38" y="6"  class="tb">QF2</text>
-    <text x="56" y="44" class="tb">FU6</text>
-    <text x="56" y="56" class="tb">FU7</text>
-    <text x="56" y="68" class="tb">FU8</text>
-    <text x="-38" y="95" class="tb">KM2</text>
-    <text x="-38" y="132" class="tb">FR2</text>
-    <text x="22" y="186" text-anchor="middle" class="tb">M2</text>
-    <text x="22" y="200" text-anchor="middle" class="ts">3~</text>
-    <text x="22" y="232" text-anchor="middle" class="t">H2SO4 nasosi</text>
+  <g transform="translate(520,220)"><use href="#feeder"/></g>
+  <g transform="translate(520,220)">
+    <text x="-44" y="76"  class="tb">QF3</text>
+    <text x="58"  y="126" class="tt">FU7..FU9</text>
+    <text x="-44" y="166" class="tb">KM2</text>
+    <text x="-44" y="206" class="tb">FR2</text>
+    <text x="22"  y="263" text-anchor="middle" class="tb">M2</text>
+    <text x="22"  y="278" text-anchor="middle" class="ts">3~</text>
+    <text x="22"  y="330" text-anchor="middle" class="ts">H2SO4 nasosi</text>
   </g>
-
   <!-- M3 -->
-  <g transform="translate(210,500)">
-    <use href="#starter"/>
-    <text x="-38" y="6"  class="tb">QF3</text>
-    <text x="56" y="44" class="tb">FU9</text>
-    <text x="56" y="56" class="tb">FU10</text>
-    <text x="56" y="68" class="tb">FU11</text>
-    <text x="-38" y="95" class="tb">KM3</text>
-    <text x="-38" y="132" class="tb">FR3</text>
-    <text x="22" y="186" text-anchor="middle" class="tb">M3</text>
-    <text x="22" y="200" text-anchor="middle" class="ts">3~</text>
-    <text x="22" y="232" text-anchor="middle" class="t">Aralashtirgich</text>
+  <g transform="translate(740,220)"><use href="#feeder"/></g>
+  <g transform="translate(740,220)">
+    <text x="-44" y="76"  class="tb">QF4</text>
+    <text x="58"  y="126" class="tt">FU10..FU12</text>
+    <text x="-44" y="166" class="tb">KM3</text>
+    <text x="-44" y="206" class="tb">FR3</text>
+    <text x="22"  y="263" text-anchor="middle" class="tb">M3</text>
+    <text x="22"  y="278" text-anchor="middle" class="ts">3~</text>
+    <text x="22"  y="330" text-anchor="middle" class="ts">Aralashtirgich</text>
   </g>
-
   <!-- M4 -->
-  <g transform="translate(350,500)">
-    <use href="#starter"/>
-    <text x="-38" y="6"  class="tb">QF4</text>
-    <text x="56" y="44" class="tb">FU12</text>
-    <text x="56" y="56" class="tb">FU13</text>
-    <text x="56" y="68" class="tb">FU14</text>
-    <text x="-38" y="95" class="tb">KM4</text>
-    <text x="-38" y="132" class="tb">FR4</text>
-    <text x="22" y="186" text-anchor="middle" class="tb">M4</text>
-    <text x="22" y="200" text-anchor="middle" class="ts">3~</text>
-    <text x="22" y="244" text-anchor="middle" class="t">Kristallizator</text>
-    <text x="22" y="258" text-anchor="middle" class="t">aralashtirgich</text>
+  <g transform="translate(960,220)"><use href="#feeder"/></g>
+  <g transform="translate(960,220)">
+    <text x="-44" y="76"  class="tb">QF5</text>
+    <text x="58"  y="126" class="tt">FU13..FU15</text>
+    <text x="-44" y="166" class="tb">KM4</text>
+    <text x="-44" y="206" class="tb">FR4</text>
+    <text x="22"  y="263" text-anchor="middle" class="tb">M4</text>
+    <text x="22"  y="278" text-anchor="middle" class="ts">3~</text>
+    <text x="22"  y="330" text-anchor="middle" class="ts">Kristallizator</text>
+    <text x="22"  y="344" text-anchor="middle" class="ts">aralashtirgich</text>
   </g>
-
   <!-- M5 -->
-  <g transform="translate(490,500)">
-    <use href="#starter"/>
-    <text x="-38" y="6"  class="tb">QF5</text>
-    <text x="56" y="44" class="tb">FU15</text>
-    <text x="56" y="56" class="tb">FU16</text>
-    <text x="56" y="68" class="tb">FU17</text>
-    <text x="-38" y="95" class="tb">KM5</text>
-    <text x="-38" y="132" class="tb">FR5</text>
-    <text x="22" y="186" text-anchor="middle" class="tb">M5</text>
-    <text x="22" y="200" text-anchor="middle" class="ts">3~</text>
-    <text x="22" y="232" text-anchor="middle" class="t">Sentrifuga</text>
+  <g transform="translate(1180,220)"><use href="#feeder"/></g>
+  <g transform="translate(1180,220)">
+    <text x="-44" y="76"  class="tb">QF6</text>
+    <text x="58"  y="126" class="tt">FU16..FU18</text>
+    <text x="-44" y="166" class="tb">KM5</text>
+    <text x="-44" y="206" class="tb">FR5</text>
+    <text x="22"  y="263" text-anchor="middle" class="tb">M5</text>
+    <text x="22"  y="278" text-anchor="middle" class="ts">3~</text>
+    <text x="22"  y="330" text-anchor="middle" class="ts">Sentrifuga</text>
   </g>
-
   <!-- M6 -->
-  <g transform="translate(630,500)">
-    <use href="#starter"/>
-    <text x="-38" y="6"  class="tb">QF6</text>
-    <text x="56" y="44" class="tb">FU18</text>
-    <text x="56" y="56" class="tb">FU19</text>
-    <text x="56" y="68" class="tb">FU20</text>
-    <text x="-38" y="95" class="tb">KM6</text>
-    <text x="-38" y="132" class="tb">FR6</text>
-    <text x="22" y="186" text-anchor="middle" class="tb">M6</text>
-    <text x="22" y="200" text-anchor="middle" class="ts">3~</text>
-    <text x="22" y="232" text-anchor="middle" class="t">Quritish drum</text>
+  <g transform="translate(1400,220)"><use href="#feeder"/></g>
+  <g transform="translate(1400,220)">
+    <text x="-44" y="76"  class="tb">QF7</text>
+    <text x="58"  y="126" class="tt">FU19..FU21</text>
+    <text x="-44" y="166" class="tb">KM6</text>
+    <text x="-44" y="206" class="tb">FR6</text>
+    <text x="22"  y="263" text-anchor="middle" class="tb">M6</text>
+    <text x="22"  y="278" text-anchor="middle" class="ts">3~</text>
+    <text x="22"  y="330" text-anchor="middle" class="ts">Quritish drum</text>
   </g>
 
-  <!-- ===================== RELAYS & SIGNALS (right side) ===================== -->
-  <g transform="translate(820,430)">
-    <!-- time relays SA1, SA2 -->
-    <text x="10" y="-6" class="tb">SA1</text>
-    <circle class="comp" cx="10" cy="20" r="16"/>
-    <line class="comp" x1="10" y1="20" x2="10" y2="8"/>
-    <line class="comp" x1="10" y1="20" x2="18" y2="24"/>
+  <!-- separator -->
+  <line class="dash" x1="40" y1="540" x2="1644" y2="540"/>
+  <text x="60" y="572" class="sec">B. BOSHQARUV (UPRAVLENIYE) VA SIGNALIZATSIYA ZANJIRI &#8212; 220 V</text>
 
-    <text x="70" y="-6" class="tb">SA2</text>
-    <circle class="comp" cx="70" cy="20" r="16"/>
-    <line class="comp" x1="70" y1="20" x2="70" y2="8"/>
-    <line class="comp" x1="70" y1="20" x2="78" y2="24"/>
+  <!-- control rails -->
+  <line class="wire" x1="255" y1="600" x2="1480" y2="600"/>
+  <line class="wire" x1="210" y1="840" x2="1480" y2="840"/>
+  <text x="1486" y="604" class="ts">L (220V)</text>
+  <text x="1486" y="844" class="ts">N</text>
 
-    <!-- level relays SK1, SK2 -->
-    <text x="130" y="-6" class="tb">SK1</text>
-    <circle class="comp" cx="130" cy="20" r="16"/>
-    <text x="130" y="25" text-anchor="middle" class="ts">H</text>
+  <!-- HL1 power-on lamp -->
+  <circle class="dot" cx="330" cy="600" r="2.8"/>
+  <line class="wire" x1="330" y1="600" x2="330" y2="700"/>
+  <circle class="comp" cx="330" cy="712" r="12"/>
+  <line class="comp" x1="321" y1="703" x2="339" y2="721"/>
+  <line class="comp" x1="339" y1="703" x2="321" y2="721"/>
+  <line class="wire" x1="330" y1="724" x2="330" y2="840"/>
+  <circle class="dot" cx="330" cy="840" r="2.8"/>
+  <text x="346" y="690" class="tb">HL1</text>
+  <text x="346" y="706" class="ts">Quvvat</text>
 
-    <text x="190" y="-6" class="tb">SK2</text>
-    <circle class="comp" cx="190" cy="20" r="16"/>
-    <text x="190" y="25" text-anchor="middle" class="ts">H</text>
-
-    <!-- controller box -->
-    <rect class="comp" x="-10" y="50" width="60" height="50"/>
-    <text x="20" y="70" text-anchor="middle" class="ts">PLC /</text>
-    <text x="20" y="88" text-anchor="middle" class="ts">rele</text>
-
-    <!-- signal lamps -->
-    <text x="150" y="64" class="tb">HL2</text>
-    <circle cx="150" cy="86" r="13" class="grn" stroke="#111"/>
-    <text x="150" y="114" text-anchor="middle" class="ts">Ish rejimi</text>
-
-    <text x="210" y="64" class="tb">HL3</text>
-    <circle cx="210" cy="86" r="13" class="red" stroke="#111"/>
-    <text x="210" y="114" text-anchor="middle" class="ts">Avariya</text>
+  <!-- Motor control rungs M1..M6 -->
+  <!-- generated rungs -->
+  <!-- M1 -->
+  <g transform="translate(470,0)">
+    <circle class="dot" cx="0" cy="600" r="2.8"/>
+    <line class="wire" x1="0" y1="600" x2="0" y2="624"/>
+    <use href="#nc" x="0" y="624"/>
+    <text x="14" y="636" class="ts">FR1</text>
+    <line class="wire" x1="0" y1="635" x2="0" y2="664"/>
+    <use href="#nc" x="0" y="664"/>
+    <text x="14" y="676" class="ts">SB1.1</text>
+    <text x="14" y="688" class="tt">Stop</text>
+    <line class="wire" x1="0" y1="675" x2="0" y2="704"/>
+    <!-- seal-in node -->
+    <circle class="dot" cx="0" cy="704" r="2.8"/>
+    <use href="#no" x="0" y="708"/>
+    <text x="14" y="720" class="ts">SB1.2</text>
+    <text x="14" y="732" class="tt">Pusk</text>
+    <line class="wire" x1="0" y1="719" x2="0" y2="752"/>
+    <!-- seal branch -->
+    <line class="wire" x1="0" y1="704" x2="-34" y2="704"/>
+    <line class="wire" x1="-34" y1="704" x2="-34" y2="712"/>
+    <use href="#no" x="-34" y="712"/>
+    <text x="-66" y="710" class="ts">KM1</text>
+    <line class="wire" x1="-34" y1="723" x2="-34" y2="748"/>
+    <line class="wire" x1="-34" y1="748" x2="0" y2="748"/>
+    <circle class="dot" cx="0" cy="748" r="2.8"/>
+    <!-- coil -->
+    <use href="#coil" x="0" y="754"/>
+    <text x="22" y="766" class="tb">KM1</text>
+    <line class="wire" x1="0" y1="770" x2="0" y2="840"/>
+    <circle class="dot" cx="0" cy="840" r="2.8"/>
+  </g>
+  <!-- M2 -->
+  <g transform="translate(610,0)">
+    <circle class="dot" cx="0" cy="600" r="2.8"/>
+    <line class="wire" x1="0" y1="600" x2="0" y2="624"/>
+    <use href="#nc" x="0" y="624"/>
+    <text x="14" y="636" class="ts">FR2</text>
+    <line class="wire" x1="0" y1="635" x2="0" y2="664"/>
+    <use href="#nc" x="0" y="664"/>
+    <text x="14" y="676" class="ts">SB2.1</text>
+    <text x="14" y="688" class="tt">Stop</text>
+    <line class="wire" x1="0" y1="675" x2="0" y2="704"/>
+    <circle class="dot" cx="0" cy="704" r="2.8"/>
+    <use href="#no" x="0" y="708"/>
+    <text x="14" y="720" class="ts">SB2.2</text>
+    <text x="14" y="732" class="tt">Pusk</text>
+    <line class="wire" x1="0" y1="719" x2="0" y2="752"/>
+    <line class="wire" x1="0" y1="704" x2="-34" y2="704"/>
+    <line class="wire" x1="-34" y1="704" x2="-34" y2="712"/>
+    <use href="#no" x="-34" y="712"/>
+    <text x="-66" y="710" class="ts">KM2</text>
+    <line class="wire" x1="-34" y1="723" x2="-34" y2="748"/>
+    <line class="wire" x1="-34" y1="748" x2="0" y2="748"/>
+    <circle class="dot" cx="0" cy="748" r="2.8"/>
+    <use href="#coil" x="0" y="754"/>
+    <text x="22" y="766" class="tb">KM2</text>
+    <line class="wire" x1="0" y1="770" x2="0" y2="840"/>
+    <circle class="dot" cx="0" cy="840" r="2.8"/>
+  </g>
+  <!-- M3 -->
+  <g transform="translate(750,0)">
+    <circle class="dot" cx="0" cy="600" r="2.8"/>
+    <line class="wire" x1="0" y1="600" x2="0" y2="624"/>
+    <use href="#nc" x="0" y="624"/>
+    <text x="14" y="636" class="ts">FR3</text>
+    <line class="wire" x1="0" y1="635" x2="0" y2="664"/>
+    <use href="#nc" x="0" y="664"/>
+    <text x="14" y="676" class="ts">SB3.1</text>
+    <text x="14" y="688" class="tt">Stop</text>
+    <line class="wire" x1="0" y1="675" x2="0" y2="704"/>
+    <circle class="dot" cx="0" cy="704" r="2.8"/>
+    <use href="#no" x="0" y="708"/>
+    <text x="14" y="720" class="ts">SB3.2</text>
+    <text x="14" y="732" class="tt">Pusk</text>
+    <line class="wire" x1="0" y1="719" x2="0" y2="752"/>
+    <line class="wire" x1="0" y1="704" x2="-34" y2="704"/>
+    <line class="wire" x1="-34" y1="704" x2="-34" y2="712"/>
+    <use href="#no" x="-34" y="712"/>
+    <text x="-66" y="710" class="ts">KM3</text>
+    <line class="wire" x1="-34" y1="723" x2="-34" y2="748"/>
+    <line class="wire" x1="-34" y1="748" x2="0" y2="748"/>
+    <circle class="dot" cx="0" cy="748" r="2.8"/>
+    <use href="#coil" x="0" y="754"/>
+    <text x="22" y="766" class="tb">KM3</text>
+    <line class="wire" x1="0" y1="770" x2="0" y2="840"/>
+    <circle class="dot" cx="0" cy="840" r="2.8"/>
+  </g>
+  <!-- M4 -->
+  <g transform="translate(890,0)">
+    <circle class="dot" cx="0" cy="600" r="2.8"/>
+    <line class="wire" x1="0" y1="600" x2="0" y2="624"/>
+    <use href="#nc" x="0" y="624"/>
+    <text x="14" y="636" class="ts">FR4</text>
+    <line class="wire" x1="0" y1="635" x2="0" y2="664"/>
+    <use href="#nc" x="0" y="664"/>
+    <text x="14" y="676" class="ts">SB4.1</text>
+    <text x="14" y="688" class="tt">Stop</text>
+    <line class="wire" x1="0" y1="675" x2="0" y2="704"/>
+    <circle class="dot" cx="0" cy="704" r="2.8"/>
+    <use href="#no" x="0" y="708"/>
+    <text x="14" y="720" class="ts">SB4.2</text>
+    <text x="14" y="732" class="tt">Pusk</text>
+    <line class="wire" x1="0" y1="719" x2="0" y2="752"/>
+    <line class="wire" x1="0" y1="704" x2="-34" y2="704"/>
+    <line class="wire" x1="-34" y1="704" x2="-34" y2="712"/>
+    <use href="#no" x="-34" y="712"/>
+    <text x="-66" y="710" class="ts">KM4</text>
+    <line class="wire" x1="-34" y1="723" x2="-34" y2="748"/>
+    <line class="wire" x1="-34" y1="748" x2="0" y2="748"/>
+    <circle class="dot" cx="0" cy="748" r="2.8"/>
+    <use href="#coil" x="0" y="754"/>
+    <text x="22" y="766" class="tb">KM4</text>
+    <line class="wire" x1="0" y1="770" x2="0" y2="840"/>
+    <circle class="dot" cx="0" cy="840" r="2.8"/>
+  </g>
+  <!-- M5 -->
+  <g transform="translate(1030,0)">
+    <circle class="dot" cx="0" cy="600" r="2.8"/>
+    <line class="wire" x1="0" y1="600" x2="0" y2="624"/>
+    <use href="#nc" x="0" y="624"/>
+    <text x="14" y="636" class="ts">FR5</text>
+    <line class="wire" x1="0" y1="635" x2="0" y2="664"/>
+    <use href="#nc" x="0" y="664"/>
+    <text x="14" y="676" class="ts">SB5.1</text>
+    <text x="14" y="688" class="tt">Stop</text>
+    <line class="wire" x1="0" y1="675" x2="0" y2="704"/>
+    <circle class="dot" cx="0" cy="704" r="2.8"/>
+    <use href="#no" x="0" y="708"/>
+    <text x="14" y="720" class="ts">SB5.2</text>
+    <text x="14" y="732" class="tt">Pusk</text>
+    <line class="wire" x1="0" y1="719" x2="0" y2="752"/>
+    <line class="wire" x1="0" y1="704" x2="-34" y2="704"/>
+    <line class="wire" x1="-34" y1="704" x2="-34" y2="712"/>
+    <use href="#no" x="-34" y="712"/>
+    <text x="-66" y="710" class="ts">KM5</text>
+    <line class="wire" x1="-34" y1="723" x2="-34" y2="748"/>
+    <line class="wire" x1="-34" y1="748" x2="0" y2="748"/>
+    <circle class="dot" cx="0" cy="748" r="2.8"/>
+    <use href="#coil" x="0" y="754"/>
+    <text x="22" y="766" class="tb">KM5</text>
+    <line class="wire" x1="0" y1="770" x2="0" y2="840"/>
+    <circle class="dot" cx="0" cy="840" r="2.8"/>
+  </g>
+  <!-- M6 -->
+  <g transform="translate(1170,0)">
+    <circle class="dot" cx="0" cy="600" r="2.8"/>
+    <line class="wire" x1="0" y1="600" x2="0" y2="624"/>
+    <use href="#nc" x="0" y="624"/>
+    <text x="14" y="636" class="ts">FR6</text>
+    <line class="wire" x1="0" y1="635" x2="0" y2="664"/>
+    <use href="#nc" x="0" y="664"/>
+    <text x="14" y="676" class="ts">SB6.1</text>
+    <text x="14" y="688" class="tt">Stop</text>
+    <line class="wire" x1="0" y1="675" x2="0" y2="704"/>
+    <circle class="dot" cx="0" cy="704" r="2.8"/>
+    <use href="#no" x="0" y="708"/>
+    <text x="14" y="720" class="ts">SB6.2</text>
+    <text x="14" y="732" class="tt">Pusk</text>
+    <line class="wire" x1="0" y1="719" x2="0" y2="752"/>
+    <line class="wire" x1="0" y1="704" x2="-34" y2="704"/>
+    <line class="wire" x1="-34" y1="704" x2="-34" y2="712"/>
+    <use href="#no" x="-34" y="712"/>
+    <text x="-66" y="710" class="ts">KM6</text>
+    <line class="wire" x1="-34" y1="723" x2="-34" y2="748"/>
+    <line class="wire" x1="-34" y1="748" x2="0" y2="748"/>
+    <circle class="dot" cx="0" cy="748" r="2.8"/>
+    <use href="#coil" x="0" y="754"/>
+    <text x="22" y="766" class="tb">KM6</text>
+    <line class="wire" x1="0" y1="770" x2="0" y2="840"/>
+    <circle class="dot" cx="0" cy="840" r="2.8"/>
   </g>
 
-  <!-- ===================== TERMINAL BLOCK XT ===================== -->
-  <g transform="translate(820,610)">
-    <text x="-30" y="14" class="tb">XT</text>
-    <rect class="comp" x="0" y="0" width="396" height="30"/>
-    <!-- 12 cells -->
+  <!-- HL2 run lamp (green) via KM NO -->
+  <g transform="translate(1310,0)">
+    <circle class="dot" cx="0" cy="600" r="2.8"/>
+    <line class="wire" x1="0" y1="600" x2="0" y2="648"/>
+    <use href="#no" x="0" y="648"/>
+    <text x="12" y="660" class="ts">KM (ish)</text>
+    <line class="wire" x1="0" y1="659" x2="0" y2="700"/>
+    <circle cx="0" cy="712" r="12" fill="#37a23a" stroke="#0a0a0a" stroke-width="1.6"/>
+    <line class="wire" x1="0" y1="724" x2="0" y2="840"/>
+    <circle class="dot" cx="0" cy="840" r="2.8"/>
+    <text x="16" y="708" class="tb">HL2</text>
+    <text x="16" y="724" class="ts">Ish rejimi</text>
+  </g>
+  <!-- HL3 fault lamp (red) via FR NO -->
+  <g transform="translate(1430,0)">
+    <circle class="dot" cx="0" cy="600" r="2.8"/>
+    <line class="wire" x1="0" y1="600" x2="0" y2="648"/>
+    <use href="#no" x="0" y="648"/>
+    <text x="12" y="660" class="ts">FR (avariya)</text>
+    <line class="wire" x1="0" y1="659" x2="0" y2="700"/>
+    <circle cx="0" cy="712" r="12" fill="#e23b2e" stroke="#0a0a0a" stroke-width="1.6"/>
+    <line class="wire" x1="0" y1="724" x2="0" y2="840"/>
+    <circle class="dot" cx="0" cy="840" r="2.8"/>
+    <text x="16" y="708" class="tb">HL3</text>
+    <text x="16" y="724" class="ts">Avariya</text>
+  </g>
+
+  <!-- ===================== ELEMENT LIST (Perechen elementov) ===================== -->
+  <g transform="translate(40,872)">
+    <rect class="comp" x="0" y="0" width="860" height="296"/>
+    <text x="430" y="20" text-anchor="middle" class="tb">ELEMENTLAR RO'YXATI (PEREChEN ELEMENTOV)</text>
+    <line class="comp" x1="0" y1="28" x2="860" y2="28"/>
+    <!-- column lines -->
+    <line class="comp" x1="120" y1="28" x2="120" y2="296"/>
+    <line class="comp" x1="760" y1="28" x2="760" y2="296"/>
+    <text x="10"  y="44" class="tb">Belgi</text>
+    <text x="130" y="44" class="tb">Nomi va tavsifi</text>
+    <text x="770" y="44" class="tb">Soni</text>
+    <line class="comp" x1="0" y1="50" x2="860" y2="50"/>
     <g class="ts">
-      <line class="comp" x1="33"  y1="0" x2="33"  y2="30"/>
-      <line class="comp" x1="66"  y1="0" x2="66"  y2="30"/>
-      <line class="comp" x1="99"  y1="0" x2="99"  y2="30"/>
-      <line class="comp" x1="132" y1="0" x2="132" y2="30"/>
-      <line class="comp" x1="165" y1="0" x2="165" y2="30"/>
-      <line class="comp" x1="198" y1="0" x2="198" y2="30"/>
-      <line class="comp" x1="231" y1="0" x2="231" y2="30"/>
-      <line class="comp" x1="264" y1="0" x2="264" y2="30"/>
-      <line class="comp" x1="297" y1="0" x2="297" y2="30"/>
-      <line class="comp" x1="330" y1="0" x2="330" y2="30"/>
-      <line class="comp" x1="363" y1="0" x2="363" y2="30"/>
-      <text x="16"  y="20" text-anchor="middle">1</text>
-      <text x="49"  y="20" text-anchor="middle">2</text>
-      <text x="82"  y="20" text-anchor="middle">3</text>
-      <text x="115" y="20" text-anchor="middle">4</text>
-      <text x="148" y="20" text-anchor="middle">5</text>
-      <text x="181" y="20" text-anchor="middle">6</text>
-      <text x="214" y="20" text-anchor="middle">7</text>
-      <text x="247" y="20" text-anchor="middle">8</text>
-      <text x="280" y="20" text-anchor="middle">9</text>
-      <text x="313" y="20" text-anchor="middle">10</text>
-      <text x="346" y="20" text-anchor="middle">11</text>
-      <text x="379" y="20" text-anchor="middle">12</text>
+      <text x="10" y="68">QF1</text><text x="130" y="68">Asosiy avtomat o'chirgich, 3 fazali kirish</text><text x="788" y="68">1</text>
+      <text x="10" y="88">QF2..QF7</text><text x="130" y="88">Dvigatel himoya avtomatlari</text><text x="788" y="88">6</text>
+      <text x="10" y="108">FU1, FU2</text><text x="130" y="108">Sig'urta (T1 birlamchi cho'lg'ami)</text><text x="788" y="108">2</text>
+      <text x="10" y="128">FU3</text><text x="130" y="128">Sig'urta (T1 ikkilamchi / boshqaruv)</text><text x="788" y="128">1</text>
+      <text x="10" y="148">FU4..FU21</text><text x="130" y="148">Kuch zanjiri sig'urtalari (har motorga 3 ta)</text><text x="788" y="148">18</text>
+      <text x="10" y="168">KM1..KM6</text><text x="130" y="168">Kontaktor (magnit yurituvchi)</text><text x="788" y="168">6</text>
+      <text x="10" y="188">FR1..FR6</text><text x="130" y="188">Termik rele (ortiqcha yukdan himoya)</text><text x="788" y="188">6</text>
+      <text x="10" y="208">M1..M6</text><text x="130" y="208">Asinxron elektr dvigatel, 3~ 380 V</text><text x="788" y="208">6</text>
+      <text x="10" y="228">T1</text><text x="130" y="228">Boshqaruv transformatori 380/220 V</text><text x="788" y="228">1</text>
+      <text x="10" y="248">SB1..SB6</text><text x="130" y="248">"Pusk/Stop" tugma postlari</text><text x="788" y="248">6</text>
+      <text x="10" y="268">HL1/HL2/HL3</text><text x="130" y="268">Signal chiroqlari: Quvvat / Ish / Avariya</text><text x="788" y="268">3</text>
+      <text x="10" y="288">SK1,SK2 / SA1,SA2 / XT</text><text x="130" y="288">Daraja relesi / Vaqt relesi / Klemma kolodkasi</text><text x="788" y="288">—</text>
     </g>
-    <!-- terminal markers -->
-    <g class="ts">
-      <text x="16"  y="48" text-anchor="middle">L</text>
-      <text x="49"  y="48" text-anchor="middle">N</text>
-      <text x="82"  y="48" text-anchor="middle">M1</text>
-      <text x="115" y="48" text-anchor="middle">M2</text>
-      <text x="148" y="48" text-anchor="middle">M3</text>
-      <text x="181" y="48" text-anchor="middle">M4</text>
-      <text x="214" y="48" text-anchor="middle">M5</text>
-      <text x="247" y="48" text-anchor="middle">M6</text>
-      <text x="280" y="48" text-anchor="middle">SK1</text>
-      <text x="313" y="48" text-anchor="middle">SK2</text>
-      <text x="346" y="48" text-anchor="middle">SA1</text>
-      <text x="379" y="48" text-anchor="middle">SA2</text>
-    </g>
-    <!-- dashed link to control panel -->
-    <rect class="dash" x="40" y="64" width="320" height="26"/>
-    <text x="200" y="82" text-anchor="middle" class="t">Boshqaruv paneliga</text>
   </g>
 
-  <!-- ===================== PROCESS FLOW (bottom) ===================== -->
-  <g transform="translate(40,760)">
-    <text x="0" y="40" class="t">NH3</text>
-    <line class="wire" x1="34" y1="36" x2="70" y2="36"/>
-    <!-- NH3 nasosi -->
-    <rect class="fill" x="70" y="18" width="46" height="40"/>
-    <circle class="comp" cx="93" cy="38" r="11"/>
-    <text x="93" y="78" text-anchor="middle" class="ts">NH3 nasosi</text>
-
-    <line class="wire" x1="116" y1="36" x2="160" y2="36"/>
-    <!-- Absorber (M2) -->
-    <text x="190" y="-2" class="ts">H2SO4</text>
-    <line class="wire" x1="190" y1="2" x2="190" y2="22"/>
-    <path class="fill" d="M160,22 h60 v40 q0,18 -30,18 q-30,0 -30,-18 z"/>
-    <circle class="comp" cx="190" cy="62" r="9"/>
-    <text x="190" y="98" text-anchor="middle" class="ts">M2 Absorber</text>
-
-    <line class="wire" x1="220" y1="40" x2="270" y2="40"/>
-    <!-- Aralashtirgich (M3) -->
-    <rect class="fill" x="270" y="22" width="64" height="56"/>
-    <circle class="comp" cx="302" cy="56" r="9"/>
-    <text x="302" y="98" text-anchor="middle" class="ts">M3 Aralashtirgich</text>
-
-    <line class="wire" x1="334" y1="46" x2="384" y2="46"/>
-    <!-- Kristallizator (M3) -->
-    <path class="fill" d="M384,22 h64 v34 l-32,26 l-32,-26 z"/>
-    <circle class="comp" cx="416" cy="48" r="9"/>
-    <text x="416" y="98" text-anchor="middle" class="ts">Kristallizator</text>
-
-    <line class="wire" x1="448" y1="46" x2="498" y2="46"/>
-    <!-- Sentrifuga (M4) -->
-    <path class="fill" d="M498,26 h56 l-10,40 h-36 z"/>
-    <circle class="comp" cx="526" cy="46" r="9"/>
-    <text x="526" y="98" text-anchor="middle" class="ts">M4 Sentrifuga</text>
-
-    <line class="wire" x1="554" y1="46" x2="604" y2="46"/>
-    <!-- Quritish drum (M6) -->
-    <ellipse class="fill" cx="650" cy="46" rx="46" ry="26"/>
-    <circle class="comp" cx="618" cy="46" r="9"/>
-    <text x="650" y="98" text-anchor="middle" class="ts">M6 Quritish drum</text>
-
-    <line class="wire" x1="696" y1="46" x2="746" y2="46"/>
-    <text x="752" y="42" class="tb">(NH4)2SO4</text>
-    <text x="752" y="58" class="t">Mahsulot</text>
-
-    <!-- sensors note -->
-    <rect class="dash" x="150" y="118" width="430" height="26"/>
-    <text x="365" y="135" text-anchor="middle" class="ts">Datchiklar: daraja (SK1, SK2), temperatura, oqim</text>
+  <!-- ===================== TECHNICAL NOTES ===================== -->
+  <g transform="translate(920,872)">
+    <text x="0" y="14" class="sec">Texnik talablar / Izoh:</text>
+    <text x="0" y="38" class="ts">1. Sxema kuchlanish berilmagan holatda ko'rsatilgan; nuqta (&#9679;) &#8212; ulanish.</text>
+    <text x="0" y="58" class="ts">2. Barcha dvigatellar 3 fazali; korpuslari PE orqali yerga ulangan.</text>
+    <text x="0" y="78" class="ts">3. Har bir dvigatel KM kontaktor va FR termik rele bilan himoyalangan.</text>
+    <text x="0" y="98" class="ts">4. Boshqaruv zanjiri 220 V, T1 transformatoridan oziqlanadi (FU3 himoya).</text>
+    <text x="0" y="118" class="ts">5. "Pusk" (SBn.2) bosilganda KMn ishga tushadi va o'zining bloklovchi</text>
+    <text x="0" y="136" class="ts">    kontakti (KMn) orqali ushlanib qoladi; "Stop" (SBn.1) yoki FRn ishlaganda o'chadi.</text>
+    <text x="0" y="156" class="ts">6. HL1 &#8212; tarmoq kuchlanishi, HL2 &#8212; ish rejimi (yashil), HL3 &#8212; avariya (qizil).</text>
+    <text x="0" y="176" class="ts">7. SK1, SK2 &#8212; suyuqlik darajasi relelari; SA1, SA2 &#8212; vaqt relelari (avtomatika).</text>
+    <text x="0" y="196" class="ts">8. Montaj PUE (PUE) va GOST 2.702 talablariga muvofiq bajariladi.</text>
+    <text x="0" y="222" class="ts">Texnologik bosqichlar: NH3 (M1) &#8594; absorber/saturator (M2,M3) &#8594; kristallizator (M4)</text>
+    <text x="0" y="240" class="ts">&#8594; sentrifuga (M5) &#8594; quritish drum (M6) &#8594; (NH4)2SO4 mahsulot.</text>
   </g>
 
-  <!-- ===================== NOTES (Izoh) ===================== -->
-  <g transform="translate(830,760)">
-    <text x="0" y="0" class="sub">Izoh:</text>
-    <text x="0" y="22" class="ts">1. Barcha motorlar 3 fazali, himoya PE eroli bajarilgan.</text>
-    <text x="0" y="40" class="ts">2. FR — motorlarni ortiqcha yukdan himoya qiladi.</text>
-    <text x="0" y="58" class="ts">3. SK1, SK2 — suyuqlik darajasi yuqori/past signali.</text>
-    <text x="0" y="76" class="ts">4. SA1, SA2 — vaqt relesi (jarayon bosqichlarini kechiktirish).</text>
-    <text x="0" y="94" class="ts">5. HL1 — quvvat, HL2 — ish rejimi, HL3 — avariya signali.</text>
+  <!-- ===================== TITLE BLOCK (stamp) ===================== -->
+  <g transform="translate(1184,1058)">
+    <rect class="comp" x="0" y="0" width="480" height="110"/>
+    <line class="comp" x1="0"   y1="36" x2="320" y2="36"/>
+    <line class="comp" x1="0"   y1="74" x2="480" y2="74"/>
+    <line class="comp" x1="320" y1="0"  x2="320" y2="74"/>
+    <line class="comp" x1="80"  y1="74" x2="80"  y2="110"/>
+    <line class="comp" x1="170" y1="74" x2="170" y2="110"/>
+    <line class="comp" x1="300" y1="74" x2="300" y2="110"/>
+    <line class="comp" x1="390" y1="74" x2="390" y2="110"/>
+    <text x="160" y="22" text-anchor="middle" class="tb">Sulfat ammoniy ishlab chiqarish</text>
+    <text x="160" y="60" text-anchor="middle" class="ts">Elektr prinsipial sxema (E3)</text>
+    <text x="400" y="22" text-anchor="middle" class="ts">Hujjat</text>
+    <text x="400" y="58" text-anchor="middle" class="tb">E3</text>
+    <text x="6"   y="92" class="tt">Bajardi</text>
+    <text x="86"  y="92" class="tt">Tekshirdi</text>
+    <text x="176" y="92" class="tt">Tasdiqladi</text>
+    <text x="306" y="92" class="tt">Varaq 1</text>
+    <text x="396" y="92" class="tt">Masshtab b/m</text>
   </g>
 
 </svg>
